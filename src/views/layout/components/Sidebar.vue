@@ -9,7 +9,7 @@
                 <!-- FIXME:目前第一级nodeInfo的url为空，所以给了个假的id -->
                 <el-submenu :index="item.nodeInfo.url||item.nodeInfo.id" v-if="item.children.length">
                     <template slot="title">
-                        <i :class="item.nodeInfo.icon"></i>
+                        <i class="el-icon-success"></i>
                         <span slot="title">{{item.nodeInfo.name}}</span>
                     </template>
                     <el-menu-item :index="subItem.nodeInfo.url" v-for="subItem in item.children" :key="subItem.nodeInfo.id">
