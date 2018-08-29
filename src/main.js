@@ -3,6 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Element from 'element-ui'
+import './styles/element-variables.scss' // element样式
+import './styles/index.scss' // 全局 css
+
+Vue.use(Element)
 
 Vue.config.productionTip = false
 
