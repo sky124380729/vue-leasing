@@ -73,11 +73,17 @@ a:hover {
     .app-wrapper {
         height: 100%;
         .sidebar {
+            float: left;
             width: 200px;
             height: 100%;
             .el-menu {
                 min-height: 100%;
             }
+        }
+        .main-wrapper {
+            width: 100%;
+            min-height: 100%;
+            margin-left: 200px;
         }
     }
 }
