@@ -44,6 +44,7 @@ export const asyncMap = [{
     children: [{
         path: 'b',
         component: () => import('../components/test-child'),
-        name: 'test-child'
+        name: 'test-child',
+        meta: {title: '测试-子页面', icon: 'fa fa-adn', cache: false}
     }]
 }]
