@@ -4,7 +4,7 @@
             <el-radio-button :label="false">展开</el-radio-button>
             <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group> -->
-        <el-menu @open="handleOpen" :default-active="$route.path" @close="handleClose" :collapse="isCollapse"  background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" >
+        <el-menu @open="handleOpen" :default-active="$route.path" @close="handleClose" :collapse="isCollapse"  background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
             <div v-for="item in menuList" :key="item.id">
                 <!-- FIXME:目前第一级nodeInfo的url为空，所以给了个假的id -->
                 <el-submenu :index="item.nodeInfo.url||item.nodeInfo.id" v-if="item.children.length">
