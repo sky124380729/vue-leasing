@@ -8,10 +8,18 @@ import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css'// progress bar style
 import './styles/element-variables.scss' // element样式
 import './styles/index.scss' // 全局 css
+import filters from './filters' // 全局过滤器
+import utils from './utils' // 全局工具类
 
 Vue.use(Element)
+Vue.use(utils)
 
 Vue.config.productionTip = false
+
+// 全局注册过滤器
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+})
 
 /* 路由配置 */
 router.beforeEach((to, from, next) => {
