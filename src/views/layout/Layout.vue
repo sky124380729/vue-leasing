@@ -7,7 +7,9 @@
             <!-- 顶部导航 -->
             <navbar></navbar>
             <!-- 主要内容区域 -->
-            <main></main>
+            <transition name="el-fade-in-linear" mode="out-in">
+                <router-view :key="$route.fullPath"></router-view>
+            </transition>
         </div>
     </section>
 </template>
@@ -15,12 +17,10 @@
 <script>
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
-import Main from './components/Main'
 export default {
     components: {
         Sidebar,
-        Navbar,
-        Main
+        Navbar
     }
 }
 </script>

@@ -35,16 +35,53 @@ export default new Router({
  * title:标题
  * icon:图标
  * cache:是否缓存(默认为true)
+ * menu:是否是菜单项
 */
 export const asyncMap = [{
     path: '/test',
     name: 'test',
-    component: () => import('../components/test'),
-    meta: { title: '测试', icon: 'fa fa-adn', cache: false },
+    component: Layout,
+    meta: { title: '测试1', icon: 'el-icon-success', cache: false, menu: true },
     children: [{
-        path: 'b',
-        component: () => import('../components/test-child'),
+        path: 'a',
+        component: () => import('@/components/test-child'),
         name: 'test-child',
-        meta: {title: '测试-子页面', icon: 'fa fa-adn', cache: false}
+        meta: { title: '测试-子页面1', icon: 'el-icon-success', cache: false, menu: true }
+    }, {
+        path: 'b',
+        component: () => import('@/components/test-child2'),
+        name: 'test-child2',
+        meta: { title: '测试-子页面2', icon: 'el-icon-success', cache: false, menu: true }
+    }, {
+        path: 'c',
+        component: () => import('@/components/test-child2'),
+        name: 'test-child2',
+        meta: { title: '测试-子页面3', icon: 'el-icon-success', cache: false, menu: false }
     }]
+}, {
+    path: '/test2',
+    name: 'test2',
+    component: Layout,
+    meta: { title: '测试2', icon: 'el-icon-success', cache: false, menu: true },
+    children: [{
+        path: 'a',
+        component: () => import('@/components/test-child'),
+        name: 'test-child',
+        meta: { title: '测试-子页面1', icon: 'el-icon-success', cache: false, menu: true }
+    }, {
+        path: 'b',
+        component: () => import('@/components/test-child2'),
+        name: 'test-child2',
+        meta: { title: '测试-子页面2', icon: 'el-icon-success', cache: false, menu: false }
+    }, {
+        path: 'c',
+        component: () => import('@/components/test-child2'),
+        name: 'test-child2',
+        meta: { title: '测试-子页面3', icon: 'el-icon-success', cache: false, menu: true }
+    }]
+}, {
+    path: '/test3',
+    name: 'test3',
+    component: Layout,
+    meta: { title: '测试3', icon: 'el-icon-success', cache: false, menu: true }
 }]
