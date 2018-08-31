@@ -1,7 +1,8 @@
 <template>
     <section class="navbar">
         <div class="menubar">
-            <i class="fa" :class="`${$store.state.collapse?'fa-indent':'fa-outdent'}`" @click="changeCollapse"></i>
+            <!-- <i class="fa" :class="`${$store.state.collapse?'fa-indent':'fa-outdent'}`" @click="changeCollapse"></i> -->
+            <i class="fa fa-th-list" :class="{'fa-rotate-90':$store.state.collapse}" @click="changeCollapse"></i>
             <!-- 面包屑导航 -->
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -39,11 +40,9 @@ export default {
         height: 50px;
         line-height: 50px;
     }
-    .fa-indent,.fa-outdent {
-        position: relative;
-        top: 7px;
-        font-size: 32px;
+    .fa {
         color: #363c42;
         cursor: pointer;
+        transition: all .4s;
     }
 </style>

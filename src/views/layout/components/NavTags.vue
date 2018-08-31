@@ -67,7 +67,7 @@ export default {
         position: absolute;
     }
     .el-tag {
-        margin-right: 10px;
+        margin-right: 6px;
     a {
       display: inline-block;
     }
