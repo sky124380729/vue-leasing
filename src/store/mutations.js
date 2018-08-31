@@ -3,6 +3,10 @@ const mutation = {
     SET_MENULIST: (state, menuList) => {
         state.menuList = menuList
     },
+    // 菜单收缩状态变更
+    SET_COLLAPSE: (state, flag) => {
+        state.collapse = flag
+    },
     // 添加tag导航，以及存储cache
     ADD_NAVTAGS: (state, route) => {
         // 如果导航列表里面已经有该标签，则不添加

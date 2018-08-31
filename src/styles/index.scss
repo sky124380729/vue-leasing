@@ -72,10 +72,9 @@ a:hover {
 #app {
     .app-wrapper {
         height: 100%;
-        // 侧边栏样式
+        // 侧边栏样式（展开样式）
         .sidebar-container {
             transition: width 0.28s;
-            width: 200px !important;
             height: 100%;
             position: fixed;
             font-size: 0px;
@@ -97,7 +96,17 @@ a:hover {
             .el-menu {
                 border: none;
                 height: 100%;
-                width: 100% !important;
+                width: 200px;
+                &.el-menu--collapse {
+                    width: 80px;
+                    text-align: center;
+                    span[slot="title"] {
+                        display: none;
+                    }
+                    .el-submenu__icon-arrow {
+                        display: none;
+                    }
+                }
             }
         }
         // 右边区域样式
@@ -105,9 +114,19 @@ a:hover {
             min-height: 100%;
             margin-left: 200px;
             .navbar {
+                padding: 0 10px 10px 10px;
                 // background-color: yellowgreen;
                 border-bottom: 1px solid yellowgreen;
             }
+            .main-box {
+                padding: 10px;
+            }
+        }
+    }
+    // 收缩之后的样式
+    .app-wrapper.shrink {
+        .main-wrapper {
+            margin-left: 80px;
         }
     }
 }

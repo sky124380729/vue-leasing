@@ -8,6 +8,7 @@ import Element from 'element-ui'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css'// progress bar style
 import './styles/element-variables.scss' // element样式
+import 'font-awesome/css/font-awesome.min.css' // 字体ICON
 import './styles/index.scss' // 全局 css
 import filters from './filters' // 全局过滤器
 import utils from './utils' // 全局工具类

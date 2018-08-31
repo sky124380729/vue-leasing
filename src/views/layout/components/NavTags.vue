@@ -60,8 +60,7 @@ export default {
 .navTags {
     position: relative;
     width: 100%;
-    height: 52px;
-    padding: 10px;
+    height: 32px;
     overflow: hidden;
     white-space: nowrap;
     .tag-container {
