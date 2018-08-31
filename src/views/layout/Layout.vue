@@ -1,7 +1,7 @@
 <template>
     <section class="app-wrapper">
         <!-- 左侧导航 -->
-        <sidebar></sidebar>
+        <sidebar class="sidebar-container"></sidebar>
         <!-- 右侧区域 -->
         <div class="main-wrapper">
             <!-- 顶部导航 -->

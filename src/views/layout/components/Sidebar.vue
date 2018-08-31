@@ -1,6 +1,6 @@
 <template>
-    <section class="sidebar">
-        <el-menu :collapse="false"  background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router >
+    <el-scrollbar wrapClass="scrollbar-wrapper">
+        <el-menu :collapse="false"  background-color="#363C42" text-color="#fff" active-text-color="#ffd04b" router >
             <div v-for="item in menuList" :key="item.name">
                 <!-- 有子菜单 -->
                 <el-submenu :index="item.path" v-if="item.children&&item.children.length">
@@ -20,8 +20,7 @@
                 </el-menu-item>
             </div>
         </el-menu>
-
-    </section>
+    </el-scrollbar>
 </template>
 
 <script>

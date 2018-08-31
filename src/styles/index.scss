@@ -72,17 +72,36 @@ a:hover {
 #app {
     .app-wrapper {
         height: 100%;
-        .sidebar {
-            float: left;
-            width: 200px;
+        // 侧边栏样式
+        .sidebar-container {
+            transition: width 0.28s;
+            width: 200px !important;
             height: 100%;
+            position: fixed;
+            font-size: 0px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1001;
+            overflow: hidden;
+            //reset element-ui css
+            .horizontal-collapse-transition {
+                transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+            }
+            .scrollbar-wrapper {
+                overflow-x: hidden!important;
+                .el-scrollbar__view {
+                    height: 100%;
+                }
+            }
             .el-menu {
-                min-height: 100%;
-                border-right: none;
+                border: none;
+                height: 100%;
+                width: 100% !important;
             }
         }
+        // 右边区域样式
         .main-wrapper {
-            width: 100%;
             min-height: 100%;
             margin-left: 200px;
         }

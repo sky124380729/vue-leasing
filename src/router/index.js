@@ -84,4 +84,89 @@ export const asyncMap = [{
     name: 'test3',
     component: Layout,
     meta: { title: '测试3', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test4',
+    name: 'test4',
+    component: Layout,
+    meta: { title: '测试4', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test5',
+    name: 'test5',
+    component: Layout,
+    meta: { title: '测试5', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test6',
+    name: 'test6',
+    component: Layout,
+    meta: { title: '测试6', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test7',
+    name: 'test7',
+    component: Layout,
+    meta: { title: '测试7', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test8',
+    name: 'test8',
+    component: Layout,
+    meta: { title: '测试8', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test9',
+    name: 'test9',
+    component: Layout,
+    meta: { title: '测试9', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test10',
+    name: 'test10',
+    component: Layout,
+    meta: { title: '测试10', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test11',
+    name: 'test11',
+    component: Layout,
+    meta: { title: '测试11', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test12',
+    name: 'test12',
+    component: Layout,
+    meta: { title: '测试12', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test13',
+    name: 'test13',
+    component: Layout,
+    meta: { title: '测试13', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test14',
+    name: 'test14',
+    component: Layout,
+    meta: { title: '测试14', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test15',
+    name: 'test15',
+    component: Layout,
+    meta: { title: '测试15', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test16',
+    name: 'test16',
+    component: Layout,
+    meta: { title: '测试16', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test17',
+    name: 'test17',
+    component: Layout,
+    meta: { title: '测试17', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test18',
+    name: 'test18',
+    component: Layout,
+    meta: { title: '测试18', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test19',
+    name: 'test19',
+    component: Layout,
+    meta: { title: '测试19', icon: 'el-icon-success', cache: false, menu: true }
+}, {
+    path: '/test20',
+    name: 'test20',
+    component: Layout,
+    meta: { title: '测试20', icon: 'el-icon-success', cache: false, menu: true }
 }]
