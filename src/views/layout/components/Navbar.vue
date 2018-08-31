@@ -8,6 +8,27 @@
                 <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                 <el-breadcrumb-item v-for="item in breadList" :key="item.name" :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
             </el-breadcrumb>
+
+            <!-- 右侧菜单项 -->
+            <div class="fr menu-right">
+
+                <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
+                    <i class="fa fa-arrows-alt"></i>
+                </el-tooltip>
+
+                <el-dropdown>
+                    <!-- <img class="person-img" src="../../../assets/mapleWorld.jpg" width="40" height="40" alt=""> -->
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item>黄金糕</el-dropdown-item>
+                        <el-dropdown-item>狮子头</el-dropdown-item>
+                        <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                        <el-dropdown-item>双皮奶</el-dropdown-item>
+                        <el-dropdown-item divided>退出登录</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+
+            </div>
+
         </div>
         <nav-tags></nav-tags>
     </section>
