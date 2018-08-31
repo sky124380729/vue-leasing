@@ -1,5 +1,6 @@
-const getter = {
-    menuList: state => state.menuList
+const getters = {
+    menuList: state => state.menuList,
+    navTags: state => state.navTags
 }
 
-export default getter
+export default getters

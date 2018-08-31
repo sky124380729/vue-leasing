@@ -8,7 +8,9 @@
             <navbar></navbar>
             <!-- 主要内容区域 -->
             <transition name="el-fade-in-linear" mode="out-in">
-                <router-view :key="$route.fullPath"></router-view>
+                <keep-alive>
+                    <router-view :key="$route.fullPath"></router-view>
+                </keep-alive>
             </transition>
         </div>
     </section>

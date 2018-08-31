@@ -44,12 +44,11 @@ function filterRouter(asyncRouterMap) {
 export default {
     computed: {
         menuList() {
-            console.log(filterRouter(asyncMap))
             return filterRouter(asyncMap)
         }
     },
     created() {
-        console.log(this.menuList)
+        // console.log(this.menuList)
     },
     methods: {
         handleOpen(key, keyPath) {
