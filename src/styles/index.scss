@@ -117,6 +117,14 @@ a:hover {
                 padding: 0 10px 10px 10px;
                 // background-color: yellowgreen;
                 border-bottom: 1px solid yellowgreen;
+                //面包屑导航
+                .el-breadcrumb {
+                    display: inline-block;
+                    margin-left: 10px;
+                    .is-link {
+                        font-weight: normal;
+                    }
+                }
             }
             .main-box {
                 padding: 10px;

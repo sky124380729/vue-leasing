@@ -11,7 +11,8 @@ const constantMap = [
     {
         path: '',
         name: 'platform',
-        component: Layout
+        component: Layout,
+        meta: {title: '中央控制台'}
     }, {
         path: '/login',
         component: Login
