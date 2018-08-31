@@ -1,6 +1,6 @@
 <template>
     <section class="navTags">
-        <el-tag v-for="item in navTags" :key="item.title" closable :class="{isActive:$route.path === item.path}">
+        <el-tag v-for="(item,index) in navTags" :key="item.title+index" closable :class="{isActive:$route.path === item.path}" @close="closeTag(item)" >
             <router-link :to="item.path">{{item.title}}</router-link>
         </el-tag>
     </section>
@@ -10,10 +10,7 @@
 export default {
     data() {
         return {
-            // navTags: [
-            //     {title: '新增案件', path: '/test/a'},
-            //     {title: '呆账入账', path: '/test/b'}
-            // ]
+
         }
     },
     watch: {
@@ -27,11 +24,28 @@ export default {
         }
     },
     methods: {
+        // 添加标签
         addTag() {
             this.$store.commit('ADD_NAVTAGS', {
                 title: this.$route.meta.title,
-                path: this.$route.path
+                path: this.$route.path,
+                name: this.$route.name,
+                cache: this.$route.meta.cache
             })
+        },
+        // 删除标签
+        closeTag(tag) {
+            // 如果当前关闭的标签是激活的标签，重新跳转
+            if (this.$route.path === tag.path) {
+                for (const [index, item] of this.$store.state.navTags.entries()) {
+                    if (item.path === tag.path && index !== 0) {
+                        this.$router.push(this.$store.state.navTags[index - 1])
+                        break
+                    }
+                }
+            }
+            // 执行删除操作
+            this.$store.commit('DEL_NAVTAGS', tag)
         }
     },
     mounted() {
@@ -42,15 +56,15 @@ export default {
 
 <style lang="scss" scoped>
 .navTags {
-    padding: 10px;
-    .el-tag {
-        margin-right: 10px;
-        a {
-            display: inline-block;
-        }
-        &.isActive {
-            background-color: rgba(64, 158, 255,0.3);
-        }
+  padding: 10px;
+  .el-tag {
+    margin-right: 10px;
+    a {
+      display: inline-block;
     }
+    &.isActive {
+      background-color: rgba(64, 158, 255, 0.3);
+    }
+  }
 }
 </style>

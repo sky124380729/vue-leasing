@@ -8,7 +8,7 @@
             <navbar></navbar>
             <!-- 主要内容区域 -->
             <transition name="el-fade-in-linear" mode="out-in">
-                <keep-alive>
+                <keep-alive :include="$store.state.cachedViews">
                     <router-view :key="$route.fullPath"></router-view>
                 </keep-alive>
             </transition>
