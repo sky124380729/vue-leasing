@@ -1,8 +1,10 @@
 <template>
     <section class="navTags">
-        <el-tag v-for="(item,index) in navTags" :key="item.title+index" closable :class="{isActive:$route.path === item.path}" @close="closeTag(item)" >
-            <router-link :to="item.path">{{item.title}}</router-link>
-        </el-tag>
+        <div class="tag-container">
+            <el-tag v-for="(item,index) in navTags" :key="item.title+index" closable :class="{isActive:$route.path === item.path}" @close="closeTag(item)" >
+                <router-link :to="item.path">{{item.title}}</router-link>
+            </el-tag>
+        </div>
     </section>
 </template>
 
@@ -38,8 +40,8 @@ export default {
             // 如果当前关闭的标签是激活的标签，重新跳转
             if (this.$route.path === tag.path) {
                 for (const [index, item] of this.$store.state.navTags.entries()) {
-                    if (item.path === tag.path && index !== 0) {
-                        this.$router.push(this.$store.state.navTags[index - 1])
+                    if (item.path === tag.path && index !== this.$store.state.navTags.length - 1) {
+                        this.$router.push(this.$store.state.navTags[index + 1])
                         break
                     }
                 }
@@ -56,9 +58,17 @@ export default {
 
 <style lang="scss" scoped>
 .navTags {
-  padding: 10px;
-  .el-tag {
-    margin-right: 10px;
+    position: relative;
+    width: 100%;
+    height: 52px;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    .tag-container {
+        position: absolute;
+    }
+    .el-tag {
+        margin-right: 10px;
     a {
       display: inline-block;
     }
