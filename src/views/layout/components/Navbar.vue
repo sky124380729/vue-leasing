@@ -17,16 +17,16 @@
                 </el-tooltip>
 
                 <el-dropdown>
-                    <!-- <img class="person-img" src="../../../assets/mapleWorld.jpg" width="40" height="40" alt=""> -->
+                    <span class="el-dropdown-link">
+                        <img class="person-img" src="../../../assets/timg.gif" alt="">
+                        <i>Pink丶缤</i>
+                    </span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>黄金糕</el-dropdown-item>
-                        <el-dropdown-item>狮子头</el-dropdown-item>
-                        <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                        <el-dropdown-item>双皮奶</el-dropdown-item>
-                        <el-dropdown-item divided>退出登录</el-dropdown-item>
+                        <el-dropdown-item>我的消息</el-dropdown-item>
+                        <el-dropdown-item>设置</el-dropdown-item>
+                        <el-dropdown-item divided @click.native="logOut">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
-
             </div>
 
         </div>
@@ -46,9 +46,17 @@ export default {
         }
     },
     methods: {
+        // 改变左侧菜单收缩
         changeCollapse() {
             this.$store.commit('SET_COLLAPSE', !this.$store.state.collapse)
+        },
+        // 退出登录
+        logOut() {
+            this.$router.push({
+                path: '/login'
+            })
         }
+
     },
     components: {
         NavTags
@@ -65,5 +73,20 @@ export default {
         color: #363c42;
         cursor: pointer;
         transition: all .4s;
+    }
+    .menu-right {
+        height: 50px;
+        line-height: 50px;
+    }
+    .el-dropdown-link {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+    }
+    .person-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 5px;
     }
 </style>

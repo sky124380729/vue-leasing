@@ -29,6 +29,11 @@ router.addRoutes(asyncMap)
 /* 路由配置 */
 router.beforeEach((to, from, next) => {
     NProgress.start()
+    // 如果要条状到登录页,清空session数据
+    if (to.path === '/login') {
+        sessionStorage.removeItem('userInfo')
+        store.commit('DEL_ALL_NAVTAGS')
+    }
     next()
 })
 

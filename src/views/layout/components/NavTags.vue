@@ -1,7 +1,7 @@
 <template>
     <section class="navTags">
         <div class="tag-container">
-            <el-tag v-for="(item,index) in navTags" :key="item.title+index" closable :class="{isActive:$route.path === item.path}" @close="closeTag(item)" >
+            <el-tag v-for="(item,index) in navTags" :key="item.title+index" closable :class="{isActive:$route.path === item.path}" @close="closeTag(item)" @mousedown.native.prevent="closeOtherTag(item,$event)">
                 <router-link :to="item.path">{{item.title}}</router-link>
             </el-tag>
         </div>
@@ -48,6 +48,10 @@ export default {
             }
             // 执行删除操作
             this.$store.commit('DEL_NAVTAGS', tag)
+        },
+        closeOtherTag(tag, event) {
+            console.log(tag)
+            console.log(event)
         }
     },
     mounted() {

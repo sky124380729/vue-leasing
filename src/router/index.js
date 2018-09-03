@@ -9,10 +9,9 @@ Vue.use(Router)
 /* 静态路由（初始化的时候即注册进去） */
 const constantMap = [
     {
-        path: '',
-        name: 'platform',
-        component: Layout,
-        meta: {title: '中央控制台'}
+        path: '/',
+        redirect: '/platform',
+        component: Layout
     }, {
         path: '/login',
         component: Login
@@ -39,6 +38,11 @@ export default new Router({
  * menu:是否是菜单项
 */
 export const asyncMap = [{
+    path: '/platform',
+    name: 'platform',
+    component: Layout,
+    meta: { title: '中央控制台', icon: 'fa fa-windows', cache: true, menu: true }
+}, {
     path: '/test',
     name: 'test',
     component: Layout,
@@ -170,4 +174,15 @@ export const asyncMap = [{
     name: 'test20',
     component: Layout,
     meta: { title: '测试20', icon: 'fa fa-windows', cache: true, menu: true }
+}, {
+    path: '/system',
+    name: 'system',
+    component: Layout,
+    meta: {title: '系统资源管理', icon: 'fa fa-windows', cache: false, menu: true},
+    children: [{
+        path: 'permission',
+        component: () => import('@/components/permission'),
+        name: 'permission',
+        meta: { title: '系统权限管理', icon: 'fa fa-windows', cache: true, menu: true }
+    }]
 }]

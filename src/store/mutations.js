@@ -35,6 +35,11 @@ const mutation = {
                 break
             }
         }
+    },
+    // 删除全部tag，以及存储的chace
+    DEL_ALL_NAVTAGS: (state, route) => {
+        state.navTags = []
+        state.cachedViews = []
     }
 }
 export default mutation
