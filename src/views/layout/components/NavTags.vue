@@ -40,8 +40,12 @@ export default {
             // 如果当前关闭的标签是激活的标签，重新跳转
             if (this.$route.path === tag.path) {
                 for (const [index, item] of this.$store.state.navTags.entries()) {
-                    if (item.path === tag.path && index !== this.$store.state.navTags.length - 1) {
-                        this.$router.push(this.$store.state.navTags[index + 1])
+                    if (item.path === tag.path) {
+                        if (index !== this.$store.state.navTags.length - 1) {
+                            this.$router.push(this.$store.state.navTags[index + 1])
+                        } else if (index !== 0) {
+                            this.$router.push(this.$store.state.navTags[index - 1])
+                        }
                         break
                     }
                 }
@@ -62,16 +66,16 @@ export default {
 
 <style lang="scss" scoped>
 .navTags {
-    position: relative;
-    width: 100%;
-    height: 32px;
-    overflow: hidden;
-    white-space: nowrap;
-    .tag-container {
-        position: absolute;
-    }
-    .el-tag {
-        margin-right: 6px;
+  position: relative;
+  width: 100%;
+  height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  .tag-container {
+    position: absolute;
+  }
+  .el-tag {
+    margin-right: 6px;
     a {
       display: inline-block;
     }
