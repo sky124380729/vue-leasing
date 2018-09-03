@@ -2,24 +2,26 @@
     <section class="navbar">
         <div class="menubar">
             <!-- <i class="fa" :class="`${$store.state.collapse?'fa-indent':'fa-outdent'}`" @click="changeCollapse"></i> -->
-            <i class="fa fa-th-list" :class="{'fa-rotate-90':$store.state.collapse}" @click="changeCollapse"></i>
-            <!-- 面包屑导航 -->
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                <el-breadcrumb-item v-for="item in breadList" :key="item.name" :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
-            </el-breadcrumb>
+           <div class="fl">
+                <i class="fa fa-th-list" :class="{'fa-rotate-90':$store.state.collapse}" @click="changeCollapse"></i>
+                <!-- 面包屑导航 -->
+                <el-breadcrumb separator-class="el-icon-arrow-right">
+                    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                    <el-breadcrumb-item v-for="item in breadList" :key="item.name" :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
+                </el-breadcrumb>
+           </div>
 
             <!-- 右侧菜单项 -->
             <div class="fr menu-right">
 
-                <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
-                    <i class="fa fa-arrows-alt"></i>
+                <el-tooltip class="item fl" effect="dark" content="全屏" placement="bottom">
+                    <i class="fa fa-arrows-alt" @click="fullScreen"></i>
                 </el-tooltip>
 
                 <el-dropdown>
                     <span class="el-dropdown-link">
-                        <img class="person-img" src="../../../assets/timg.gif" alt="">
-                        <i>Pink丶缤</i>
+                        <img class="person-img fl" src="../../../assets/timg.gif" alt="">
+                        <i class="person-name fl">Pink丶缤</i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>我的消息</el-dropdown-item>
@@ -36,6 +38,7 @@
 
 <script>
 import NavTags from './NavTags'
+import screenfull from 'screenfull'
 export default {
     data() {
         return {}
@@ -55,8 +58,18 @@ export default {
             this.$router.push({
                 path: '/login'
             })
+        },
+        // 全屏
+        fullScreen() {
+            if (!screenfull.enabled) {
+                this.$message({
+                    message: 'you browser can not work',
+                    type: 'warning'
+                })
+                return false
+            }
+            screenfull.toggle()
         }
-
     },
     components: {
         NavTags
@@ -68,25 +81,25 @@ export default {
     .menubar {
         height: 50px;
         line-height: 50px;
+        overflow: hidden;
+        .fa {
+            color: #363c42;
+            cursor: pointer;
+            transition: all .4s;
+        }
+        .fa-arrows-alt {
+            line-height: 50px;
+            font-size: 24px;
+        }
+        .menu-right {
+            margin-right: 20px;
+        }
+        .person-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 5px 10px;
+        }
     }
-    .fa {
-        color: #363c42;
-        cursor: pointer;
-        transition: all .4s;
-    }
-    .menu-right {
-        height: 50px;
-        line-height: 50px;
-    }
-    .el-dropdown-link {
-        display: block;
-        height: 50px;
-        line-height: 50px;
-    }
-    .person-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin: 5px;
-    }
+
 </style>

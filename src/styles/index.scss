@@ -42,12 +42,27 @@ a:hover {
   text-decoration: none;
 }
 
+i {
+    font-style: normal;
+}
+
 .fr {
   float: right;
 }
 
 .fl {
   float: left;
+}
+
+.clearfix:after{
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.clearfix{
+    zoom:1;
 }
 
 .pr-5 {
