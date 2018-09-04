@@ -1,3 +1,6 @@
+
+import { CACHE_LIMIT } from '@/constant'
+
 const mutation = {
     // 设置菜单
     SET_MENULIST: (state, menuList) => {
@@ -13,7 +16,11 @@ const mutation = {
         if (state.navTags.find(item => item.path === route.path)) return
         // 添加tag标签导航
         state.navTags.push(route)
-        // 添加缓存列表(目前采用name的方式进行缓存)
+        // 设置最大长度
+        if (state.navTags.length === CACHE_LIMIT + 1) {
+            state.navTags.shift()
+        }
+        // ================> 添加缓存列表(目前采用name的方式进行缓存)
         if (route.cache) {
             state.cachedViews.push(route.name)
         }
@@ -27,7 +34,7 @@ const mutation = {
                 break
             }
         }
-        // 删除缓存
+        // ================> 删除缓存
         for (const i of state.cachedViews) {
             if (i === route.name) {
                 const index = state.cachedViews.indexOf(i)
