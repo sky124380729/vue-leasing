@@ -90,6 +90,17 @@ export const asyncMap = [{
     component: Layout,
     meta: { title: '测试3', icon: 'fa fa-windows', cache: true, menu: true }
 }, {
+    path: '/upload',
+    component: Layout,
+    redirect: '/upload/index',
+    meta: { title: '图片上传测试', icon: 'fa fa-windows', cache: true, menu: true },
+    children: [{
+        path: 'index',
+        name: 'upload',
+        component: () => import('@/components/c-upload'),
+        meta: {title: '图片上传测试', icon: 'fa fa-windows'}
+    }]
+}, {
     path: '/test4',
     name: 'test4',
     component: Layout,

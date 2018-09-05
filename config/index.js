@@ -11,9 +11,9 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         // Various Dev Server settings
-        host: 'localhost', // can be overwritten by process.env.HOST
+        host: '0.0.0.0', // 原值localhost，导致ip不能访问的问题修复
         port: 9300, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-        autoOpenBrowser: true,
+        autoOpenBrowser: false, // 关闭自动打开浏览器
         errorOverlay: true,
         notifyOnErrors: true,
         poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
@@ -47,6 +47,13 @@ module.exports = {
                     // pathRewrite: {
                     //     '^/leasing-api': ''   //需要rewrite重写的,
                     // }
+            },
+            '/leasing-api': {
+                target: 'http://172.16.100.208:8082',  // 接口域名
+                changeOrigin: true,  //是否跨域
+                pathRewrite: {
+                    '^/web': ''   //需要rewrite重写的,
+                }
             }
         },
     },
