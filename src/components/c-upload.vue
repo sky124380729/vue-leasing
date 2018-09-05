@@ -7,23 +7,32 @@
         <el-dialog :visible.sync="dialogVisible">
             <img width="100%" :src="dialogImageUrl" alt="">
         </el-dialog>
-        <el-button @click="submit">提交</el-button>
+        <el-button @click="submit">提交多个</el-button>
+        <div>
+            <input type="file" @change="aaa">
+            <el-button @click="submit2">提交单个</el-button>
+        </div>
     </section>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
             dialogVisible: false,
             dialogImageUrl: null,
-            fileList: []
+            fileList: [],
+            file: null
         }
     },
     methods: {
+        aaa(e) {
+            this.file = e.target.files[0]
+        },
         fileRemove() {},
         fileChange(file, fileList) {
-            console.log(fileList)
             this.fileList = fileList
+            console.log(fileList)
         },
         fileSuccess() {},
         beforeUpload(file, fileList) {
@@ -33,7 +42,27 @@ export default {
             this.dialogVisible = true
         },
         submit() {
-            this.$refs.upload.submit()
+            let formData = new FormData()
+            formData.append('name', 'zq')
+            formData.append('code', '222')
+            formData.append('obj', {a: 1})
+            this.fileList.forEach(item => {
+                formData.append('multipartFileArray', item.raw)
+            })
+            axios.post('/leasing-api/att/dto/out/many', formData, {headers: {
+                'Content-Type': 'multipart/form-data'
+            }}).then(res => {
+                console.log(res)
+            })
+        },
+        submit2() {
+            let formData = new FormData()
+            formData.append('multipartFile', this.file, 'xx1')
+            axios.post('/leasing-api/att/dto/out/one', formData, {headers: {
+                'Content-Type': 'multipart/form-data'
+            }}).then(res => {
+                console.log(res)
+            })
         }
     }
 }

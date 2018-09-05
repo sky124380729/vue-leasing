@@ -49,7 +49,7 @@ module.exports = {
                     // }
             },
             '/leasing-api': {
-                target: 'http://172.16.100.208:8082',  // 接口域名
+                target: 'http://172.16.10.245:8081',  // 接口域名
                 changeOrigin: true,  //是否跨域
                 pathRewrite: {
                     '^/web': ''   //需要rewrite重写的,
