@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'Vuex'
 export default {
     data() {
         return {
@@ -21,37 +22,41 @@ export default {
         }
     },
     computed: {
-        navTags() {
-            return this.$store.getters.navTags
-        }
+        ...mapGetters(['navTags'])
     },
     methods: {
+        ...mapMutations(['ADD_NAVTAGS', 'DEL_NAVTAGS']),
         // 添加标签
         addTag(route) {
             if (!route.name) return
-            this.$store.commit('ADD_NAVTAGS', {
-                title: route.meta.title,
+            this.ADD_NAVTAGS({
                 path: route.path,
+                title: route.meta.title,
                 name: route.name
             })
         },
         // 删除标签
         closeTag(tag) {
-            // 如果当前关闭的标签是激活的标签，重新跳转
-            if (this.$route.path === tag.path) {
-                for (const [index, item] of this.$store.state.navTags.entries()) {
+            if (this.navTags.length === 1) {
+                this.$router.push({
+                    path: '/platform/index',
+                    title: '中央控制台',
+                    name: 'platform'
+                })
+            } else if (this.$route.path === tag.path) {
+                for (const [index, item] of this.navTags.entries()) {
                     if (item.path === tag.path) {
-                        if (index !== this.$store.state.navTags.length - 1) {
-                            this.$router.push(this.$store.state.navTags[index + 1])
+                        if (index !== this.navTags.length - 1) {
+                            this.$router.push(this.navTags[index + 1])
                         } else if (index !== 0) {
-                            this.$router.push(this.$store.state.navTags[index - 1])
+                            this.$router.push(this.navTags[index - 1])
                         }
                         break
                     }
                 }
             }
             // 执行删除操作
-            this.$store.commit('DEL_NAVTAGS', tag)
+            this.DEL_NAVTAGS(tag)
         },
         // 打开关闭窗口
         openModel() {

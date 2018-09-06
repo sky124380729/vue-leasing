@@ -12,6 +12,8 @@
             <input type="file" @change="aaa">
             <el-button @click="submit2">提交单个</el-button>
         </div>
+
+        <el-button>哈哈</el-button>
     </section>
 </template>
 <script>
