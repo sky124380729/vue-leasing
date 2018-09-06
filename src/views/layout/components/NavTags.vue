@@ -17,7 +17,7 @@ export default {
     },
     watch: {
         $route(route) {
-            this.addTag()
+            this.addTag(route)
         }
     },
     computed: {
@@ -27,12 +27,12 @@ export default {
     },
     methods: {
         // 添加标签
-        addTag() {
+        addTag(route) {
+            if (!route.name) return
             this.$store.commit('ADD_NAVTAGS', {
-                title: this.$route.meta.title,
-                path: this.$route.path,
-                name: this.$route.name,
-                cache: this.$route.meta.cache
+                title: route.meta.title,
+                path: route.path,
+                name: route.name
             })
         },
         // 删除标签
@@ -59,7 +59,7 @@ export default {
         }
     },
     mounted() {
-        this.addTag()
+        this.addTag(this.$route)
     }
 }
 </script>

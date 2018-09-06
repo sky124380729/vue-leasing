@@ -7,7 +7,7 @@
                 <!-- 面包屑导航 -->
                 <el-breadcrumb separator-class="el-icon-arrow-right">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                    <el-breadcrumb-item v-for="item in breadList" :key="item.name" :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
+                    <el-breadcrumb-item v-for="item in breadList" :key="item.name">{{item.meta.title}}</el-breadcrumb-item>
                 </el-breadcrumb>
            </div>
 
@@ -45,7 +45,8 @@ export default {
     },
     computed: {
         breadList() {
-            return this.$route.matched
+            // 如果有重定向，则是由于没有子菜单
+            return this.$route.matched.filter(route => !route.redirect)
         }
     },
     methods: {

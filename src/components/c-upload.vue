@@ -17,6 +17,7 @@
 <script>
 import axios from 'axios'
 export default {
+    name: 'upload',
     data() {
         return {
             dialogVisible: false,

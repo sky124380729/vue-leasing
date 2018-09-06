@@ -15,10 +15,14 @@
                 </keep-alive> -->
 
                 <!-- 使用全缓存，设置最大缓存数 -->
-                <keep-alive :max="max">
-                    <router-view :key="$route.fullPath" class="main-box"></router-view>
-                </keep-alive>
+                <!-- <keep-alive :max="max">
+                    <router-view :key="$route.path" class="main-box"></router-view>
+                </keep-alive> -->
 
+                <!-- 动态组件缓存 -->
+                <keep-alive :include="$store.state.cachedViews">
+                    <router-view :key="$route.path" class="main-box"></router-view>
+                </keep-alive>
             </transition>
         </div>
     </section>

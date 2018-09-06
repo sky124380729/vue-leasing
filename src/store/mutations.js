@@ -1,5 +1,5 @@
 
-import { CACHE_LIMIT } from '@/constant'
+// import { CACHE_LIMIT } from '@/constant'
 
 const mutation = {
     // 设置菜单
@@ -17,13 +17,11 @@ const mutation = {
         // 添加tag标签导航
         state.navTags.push(route)
         // 设置最大长度
-        if (state.navTags.length === CACHE_LIMIT + 1) {
-            state.navTags.shift()
-        }
+        // if (state.navTags.length === CACHE_LIMIT + 1) {
+        //     state.navTags.shift()
+        // }
         // ================> 添加缓存列表(目前采用name的方式进行缓存)
-        if (route.cache) {
-            state.cachedViews.push(route.name)
-        }
+        state.cachedViews.push(route.name)
     },
     // 删除tag导航，以及存储的cache
     DEL_NAVTAGS: (state, route) => {
