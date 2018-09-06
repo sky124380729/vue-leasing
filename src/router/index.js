@@ -32,6 +32,7 @@ export default new Router({
 
 /**
  * 异步路由（经过后台权限过滤之后显示的路由，从后台取过滤后的数据再注册到页面中）
+ * 如果子菜单没有内容，则使用redirect跳转到children的index路由
  * title:标题
  * icon:图标
  * name:只要有name值就缓存页面(此处的name值要和组件中的name值保持一致)

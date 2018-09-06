@@ -4,7 +4,7 @@
             default-active="$route.path" 路径等于当前路由，可以让路由在跳转的时候对应高亮
             unique-opened 是否只保持一个菜单展开
          -->
-        <el-menu :collapse="collapse" background-color="#363C42" text-color="#fff" active-text-color="#ffd04b" router :default-active="activePath" unique-opened>
+        <el-menu :collapse="collapse" background-color="#363C42" text-color="#fff" active-text-color="#ffd04b" router :default-active="activePath" unique-opened @select="menuSelect">
             <div v-for="item in menuList" :key="item.name">
                 <!-- 有子菜单 -->
                 <el-submenu :index="item.path" v-if="item.children&&item.children.length">
@@ -54,6 +54,7 @@ export default {
             return this.$store.state.collapse
         },
         activePath() {
+            // 如果是以/index结尾的，则去掉
             if (/\/index$/.test(this.$route.path)) {
                 return this.$route.path.substring(0, this.$route.path.length - 6)
             } else {
@@ -62,7 +63,9 @@ export default {
         }
     },
     methods: {
+        menuSelect(path, keyPath) {
 
+        }
     },
     created() {
     }
