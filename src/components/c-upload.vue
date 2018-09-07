@@ -19,7 +19,7 @@
                 <el-radio v-model="radio" :label="2">否</el-radio>
             </el-form-item>
             <el-form-item label="哈哈" v-if="radio===1">
-                <el-input v-model="modela"  v-clear></el-input>
+                <el-input v-model="modelx.a"  v-clear></el-input>
             </el-form-item>
 
         </el-form>
@@ -35,8 +35,9 @@ export default {
             dialogImageUrl: null,
             fileList: [],
             file: null,
-            modelx: {},
-            modela: '',
+            modelx: {
+                a: 1
+            },
             radio: 1
         }
     },
