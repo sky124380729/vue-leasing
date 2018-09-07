@@ -13,7 +13,16 @@
             <el-button @click="submit2">提交单个</el-button>
         </div>
 
-        <el-button>哈哈</el-button>
+        <el-form :model="modelx">
+            <el-form-item label="是否">
+                <el-radio v-model="radio" :label="1">是</el-radio>
+                <el-radio v-model="radio" :label="2">否</el-radio>
+            </el-form-item>
+            <el-form-item label="哈哈" v-if="radio===1">
+                <el-input v-model="modela"  v-clear></el-input>
+            </el-form-item>
+
+        </el-form>
     </section>
 </template>
 <script>
@@ -25,7 +34,10 @@ export default {
             dialogVisible: false,
             dialogImageUrl: null,
             fileList: [],
-            file: null
+            file: null,
+            modelx: {},
+            modela: '',
+            radio: 1
         }
     },
     methods: {

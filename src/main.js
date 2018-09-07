@@ -7,25 +7,25 @@ import store from './store'
 import Element from 'element-ui'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css'// progress bar style
-import './styles/element-variables.scss' // element样式
+// import './styles/element-variables.scss' // 可更改主体的样式(勿删)
+import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.min.css' // 字体ICON
 import './styles/index.scss' // 全局 css
 import filters from './filters' // 全局过滤器
+import directives from './directives' // 全局指令
 import utils from './utils' // 全局工具类
 import { asyncMap } from '@/router'
-
-Vue.use(Element)
-Vue.use(utils)
+import elMoney from '@/components/global/elMoney'
 
 Vue.config.productionTip = false
-
-// 全局注册过滤器
+Vue.component(elMoney.name, elMoney)
+Vue.use(directives)
+Vue.use(Element)
+Vue.use(utils)
 Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
 })
-
 router.addRoutes(asyncMap)
-
 /* 路由配置 */
 router.beforeEach((to, from, next) => {
     NProgress.start()
@@ -36,7 +36,6 @@ router.beforeEach((to, from, next) => {
     }
     next()
 })
-
 router.afterEach(() => {
     NProgress.done()
 })

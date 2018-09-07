@@ -42,6 +42,8 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        // 打开eval,但是不建议使用
+        "no-eval": [0] // default is false
     },
 }
