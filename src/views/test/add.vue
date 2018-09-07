@@ -19,6 +19,9 @@ export default {
         back() {
             this.$emit('update:status', 'list')
         }
+    },
+    created() {
+        console.log('add')
     }
 }
 </script>

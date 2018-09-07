@@ -21,12 +21,14 @@
             <el-form-item label="哈哈" v-if="radio===1">
                 <el-input v-model="modelx.a"  v-clear></el-input>
             </el-form-item>
-
         </el-form>
+
+        <c-page></c-page>
     </section>
 </template>
 <script>
 import axios from 'axios'
+import CPage from '@/components/c-page'
 export default {
     name: 'upload',
     data() {
@@ -38,10 +40,16 @@ export default {
             modelx: {
                 a: 1
             },
-            radio: 1
+            radio: 1,
+            total: 98,
+            currentPage: 1,
+            pageSize: 10
         }
     },
     methods: {
+        pageChange(page) {
+            console.log(page)
+        },
         aaa(e) {
             this.file = e.target.files[0]
         },
@@ -80,6 +88,9 @@ export default {
                 console.log(res)
             })
         }
+    },
+    components: {
+        CPage
     }
 }
 </script>

@@ -1,5 +1,7 @@
 <template>
-    <component :is="state" :status.sync="status"></component>
+    <keep-alive include="list">
+        <component :is="state" :status.sync="status"></component>
+    </keep-alive>
 </template>
 
 <script>
