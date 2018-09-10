@@ -1,17 +1,14 @@
 <template>
-    <section>
-        <el-input placeholder="我是查询条件" v-model="search"></el-input>
-        <el-table :data="tableList">
-            <el-table-column label="ID" prop="id"></el-table-column>
-            <el-table-column label="姓名" prop="name"></el-table-column>
-            <el-table-column label="年龄" prop="age"></el-table-column>
-            <el-table-column label="操作">
-                <template slot-scope="scope">
-                    <el-button @click="add(scope.row)">新增</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-    </section>
+    <c-table api="/quotations/pg">
+        <el-table-column label="ID" prop="id"></el-table-column>
+        <el-table-column label="姓名" prop="name"></el-table-column>
+        <el-table-column label="年龄" prop="age"></el-table-column>
+        <el-table-column label="操作">
+            <template slot-scope="scope">
+                <el-button @click="add(scope.row)" size="mini">新增</el-button>
+            </template>
+        </el-table-column>
+    </c-table>
 </template>
 
 <script>
@@ -22,8 +19,7 @@ export default {
     },
     data() {
         return {
-            tableList: [{id: '12-123-sda', name: 'zq', age: '1'}, {id: '23-451-fda', name: 'xwc', age: '3'}],
-            search: ''
+            tableList: []
         }
     },
     methods: {
@@ -33,9 +29,6 @@ export default {
             })
             this.$emit('update:status', 'add')
         }
-    },
-    activated() {
-        console.log('activated')
     }
 }
 </script>

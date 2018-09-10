@@ -16,7 +16,7 @@
 
 import accounting from 'accounting'
 export default {
-    name: 'elMoney',
+    name: 'cMoney',
     props: {
         // v-model的绑定值，不用多提
         value: {

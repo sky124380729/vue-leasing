@@ -15,10 +15,14 @@ import filters from './filters' // 全局过滤器
 import directives from './directives' // 全局指令
 import utils from './utils' // 全局工具类
 import { asyncMap } from '@/router'
-import elMoney from '@/components/global/elMoney'
+
+// 全局组件注册
+import CMoney from '@/components/global/CMoney'
+import CTable from '@/components/global/CTable'
+Vue.component(CMoney.name, CMoney)
+Vue.component(CTable.name, CTable)
 
 Vue.config.productionTip = false
-Vue.component(elMoney.name, elMoney)
 Vue.use(directives)
 Vue.use(Element)
 Vue.use(utils)

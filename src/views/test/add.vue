@@ -1,7 +1,7 @@
 <template>
     <section>
-        <el-input v-model="aaa"></el-input>
-        <el-button @click="back">返回</el-button>
+        <el-input v-model="aaa" size="small"></el-input>
+        <el-button @click="back" size="small" type="success">返回</el-button>
     </section>
 </template>
 
