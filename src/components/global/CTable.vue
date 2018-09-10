@@ -1,9 +1,12 @@
 <template>
     <section>
-        <div>
+        <!-- <div>
             <el-input placeholder="请输入名称" v-model="conditions.name" clearable size="small"></el-input>
             <el-button @click="getList" type="primary" size="small">搜索</el-button>
-        </div>
+        </div> -->
+        <c-search :queryList="queryList">
+            <el-button type="success" size="small">新增</el-button>
+        </c-search>
         <el-table :data="tableList" :size="size" :border="border" :show-summary="showSummary" :summary-method="summaryMethod" :span-method="spanMethod" v-loading="loading">
             <slot></slot>
         </el-table>
@@ -14,8 +17,9 @@
 </template>
 
 <script>
+import CSearch from '@/components/CSearch'
 export default {
-    name: 'cTable',
+    name: 'CTable',
     props: {
         api: String,
         showSummary: Boolean,
@@ -31,7 +35,17 @@ export default {
             currentPage: 1,
             pageSize: 10,
             tableList: [],
-            loading: false
+            loading: false,
+            queryList: [{
+                key: 'name',
+                title: '名称',
+                type: 'text'
+            }, {
+                key: 'age',
+                title: '年龄',
+                type: 'select',
+                lookUp: 'LeasingTypeLookUp'
+            }]
         }
     },
     methods: {
@@ -56,6 +70,9 @@ export default {
     },
     activated() {
         this.getList()
+    },
+    components: {
+        CSearch
     }
 }
 </script>
