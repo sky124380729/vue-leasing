@@ -118,7 +118,7 @@ export default {
   }
   .fa-arrows-alt {
     line-height: 50px;
-    font-size: 24px;
+    font-size: 20px;
   }
   .menu-right {
     margin-right: 20px;

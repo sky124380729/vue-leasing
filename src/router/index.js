@@ -47,7 +47,7 @@ export const asyncMap = [{
         path: 'index',
         name: 'platform',
         component: () => import('@/views/platform'),
-        meta: {title: '中央控制台', icon: 'fa fa-windows'}
+        meta: {title: '中央控制台'}
     }]
 }, {
     path: '/component',
@@ -58,7 +58,7 @@ export const asyncMap = [{
         path: 'index',
         name: 'bus',
         component: () => import('@/views/test/bus'),
-        meta: {title: '组件测试', icon: 'fa fa-windows'}
+        meta: {title: '组件测试'}
     }]
 }, {
     path: '/upload',
@@ -69,7 +69,7 @@ export const asyncMap = [{
         path: 'index',
         name: 'upload',
         component: () => import('@/components/c-upload'),
-        meta: {title: '图片上传测试', icon: 'fa fa-windows'}
+        meta: {title: '图片上传测试'}
     }]
 }, {
     path: '/system',
