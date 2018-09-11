@@ -57,15 +57,15 @@ export default {
         return {
             msgVisible: false,
             msgList: [{
-                url: '/component/index?id=12-123-sda&state=add',
+                url: '/component/index?id=12-123-sda&status=TestAdd',
                 msg: '新增组件测试'
             }]
         }
     },
     computed: {
         breadList() {
-            // 如果有重定向，则是由于没有子菜单
-            return this.$route.matched.filter(route => !route.redirect)
+            // 如果有重定向，则是由于没有子菜单(因此过滤掉)
+            return this.$route.matched.map(route => !route.redirect)
         }
     },
     methods: {
@@ -92,7 +92,7 @@ export default {
         fullScreen() {
             if (!screenfull.enabled) {
                 this.$message({
-                    message: 'you browser can not work',
+                    message: '抱歉，您使用的浏览器不支持全屏~',
                     type: 'warning'
                 })
                 return false

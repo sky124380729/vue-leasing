@@ -32,4 +32,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 - 需要修改element框架样式在element-ui.scss中写，组件内部全局样式在custom.scss中写，index.scss用于初始化样式配置以及定义后台管理系统的布局（不要随意写入）
 
--
+- 整个项目都可能使用到的公共组件放到@/src/components中，需要注册到全局的组件放到@/src/components/global中
+
+- 静态资源放到@/src/assets中，会打包编译（相对路径引入），第三方库等内容放到@/static中，打包不会重新编译（绝对路径引入）
+
+- 每个一级菜单在@/views下创建一个文件夹，一级菜单下用components文件夹存放当前公用组件，二级菜单在此内部再创建文件夹
+
+- 为了实现缓存，页面内部使用keep-alive+component的形式书写，跳转使用replace+query参数，并更改state状态

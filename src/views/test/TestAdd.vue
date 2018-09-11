@@ -8,7 +8,7 @@
 <script>
 export default {
     props: {
-        status: String
+        state: String
     },
     data() {
         return {
@@ -17,11 +17,8 @@ export default {
     },
     methods: {
         back() {
-            this.$emit('update:status', 'list')
+            this.$emit('update:state', 'TestList')
         }
-    },
-    created() {
-        console.log('add')
     }
 }
 </script>

@@ -5,17 +5,19 @@
         <el-table-column label="年龄" prop="age"></el-table-column>
         <el-table-column label="操作" fixed="right" class-name="operate">
             <template slot-scope="scope">
-                <el-button @click="add(scope.row)" size="mini">新增</el-button>
+                <el-button @click="add(scope.row)" size="mini" type="primary">新增</el-button>
+                <el-button @click="deleteIt(scope.row)" size="mini" type="danger">删除</el-button>
             </template>
         </el-table-column>
     </c-table>
 </template>
 
 <script>
+
 export default {
-    name: 'list',
+    name: 'TestList',
     props: {
-        status: String
+        state: String
     },
     data() {
         return {
@@ -27,7 +29,17 @@ export default {
             this.$router.replace({
                 query: {id: row.id}
             })
-            this.$emit('update:status', 'add')
+            this.$emit('update:state', 'TestAdd')
+        },
+        deleteIt() {
+            console.log(this.$confirm)
+            this.$confirm('确定要删除吗?', '', {
+                confirmButtonText: 'confirm',
+                cancelButtonText: 'cancel',
+                type: 'warning'
+            }).then(() => {
+
+            }).catch(() => {})
         }
     }
 }
