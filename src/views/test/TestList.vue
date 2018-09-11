@@ -32,7 +32,6 @@ export default {
             this.$emit('update:state', 'TestAdd')
         },
         deleteIt() {
-            console.log(this.$confirm)
             this.$confirm('确定要删除吗?', '', {
                 confirmButtonText: 'confirm',
                 cancelButtonText: 'cancel',

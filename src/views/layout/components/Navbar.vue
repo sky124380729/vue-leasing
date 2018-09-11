@@ -65,7 +65,7 @@ export default {
     computed: {
         breadList() {
             // 如果有重定向，则是由于没有子菜单(因此过滤掉)
-            return this.$route.matched.map(route => !route.redirect)
+            return this.$route.matched.filter(route => !route.redirect)
         }
     },
     methods: {
