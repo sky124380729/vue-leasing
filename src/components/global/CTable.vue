@@ -1,12 +1,12 @@
 <template>
     <section>
-        <!-- <div>
+        <div>
             <el-input placeholder="请输入名称" v-model="conditions.name" clearable size="small"></el-input>
             <el-button @click="getList" type="primary" size="small">搜索</el-button>
-        </div> -->
-        <c-search :queryList="queryList">
+        </div>
+        <!-- <c-search :queryList="queryList">
             <el-button type="success" size="small">新增</el-button>
-        </c-search>
+        </c-search> -->
         <el-table :data="tableList" :size="size" :border="border" :show-summary="showSummary" :summary-method="summaryMethod" :span-method="spanMethod" v-loading="loading">
             <slot></slot>
         </el-table>

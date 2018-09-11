@@ -1,0 +1,24 @@
+/* 此处为根据页面需要的全局样式 */
+/*breadcrumb transition*/
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all .5s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadcrumb-move {
+  transition: all .5s;
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}
+
+.el-table td.operate .cell {
+    border-left: 1px solid yellowgreen;
+}

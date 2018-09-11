@@ -41,6 +41,24 @@ const mutation = {
             }
         }
     },
+    // 删除其他标签
+    DEL_OTHER_NAVTAGS: (state, route) => {
+        // 删除tag标签
+        for (const [index, item] of state.navTags.entries()) {
+            if (item.path === route.path) {
+                state.navTags = state.navTags.slice(index, index + 1)
+                break
+            }
+        }
+        // ================> 删除缓存
+        for (const i of state.cachedViews) {
+            if (i === route.name) {
+                const index = state.cachedViews.indexOf(i)
+                state.cachedViews = state.cachedViews.slice(index, index + 1)
+                break
+            }
+        }
+    },
     // 删除全部tag，以及存储的chace
     DEL_ALL_NAVTAGS: (state, route) => {
         state.navTags = []

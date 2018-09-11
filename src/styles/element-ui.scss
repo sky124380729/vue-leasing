@@ -1,4 +1,19 @@
-
+/* 此为全局修改的element样式 */
 .el-input {
     width: 200px;
+    .el-input__inner {
+        border-radius: 2px;
+    }
+}
+
+.el-tag {
+    border-radius: 2px;
+}
+
+.el-pagination {
+    margin: 20px 20px 0 0;
+}
+
+.el-button {
+    border-radius: 2px;
 }
