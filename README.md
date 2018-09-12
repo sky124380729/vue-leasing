@@ -39,3 +39,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - 每个一级菜单在@/views下创建一个文件夹，一级菜单下用components文件夹存放当前公用组件，二级菜单在此内部再创建文件夹
 
 - 为了实现缓存，页面内部使用keep-alive+component的形式书写，跳转使用replace+query参数，并更改state状态
+
+- 原则上，bus容器内的组件互相传值使用路由传参，除了state

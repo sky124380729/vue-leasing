@@ -6,6 +6,7 @@
         <el-table-column label="操作" fixed="right" class-name="operate">
             <template slot-scope="scope">
                 <el-button @click="add(scope.row)" size="mini" type="primary">新增</el-button>
+                <el-button @click="printIt(scope.row)" size="mini" type="warning">打印</el-button>
                 <el-button @click="deleteIt(scope.row)" size="mini" type="danger">删除</el-button>
             </template>
         </el-table-column>
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-
+import getLodop from '@/libs/Lodop'
 export default {
     name: 'TestList',
     props: {
@@ -39,6 +40,12 @@ export default {
             }).then(() => {
 
             }).catch(() => {})
+        },
+        printIt() {
+            let LODOP = getLodop()
+            LODOP.PRINT_INIT()
+            LODOP.SET_PRINT_PAGESIZE(0, 0, 0, 'A4')
+            LODOP.PREVIEW()
         }
     }
 }
