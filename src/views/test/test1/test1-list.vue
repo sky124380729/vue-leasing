@@ -27,15 +27,15 @@ export default {
     },
     methods: {
         add(row) {
-            this.$router.replace({
+            this.$router.push({
                 query: {id: row.id}
             })
             this.$emit('update:state', 'TestAdd')
         },
         deleteIt() {
-            this.$confirm('确定要删除吗?', '', {
-                confirmButtonText: 'confirm',
-                cancelButtonText: 'cancel',
+            this.$confirm('确定要删除吗?', '提示', {
+                confirmButtonText: '确认',
+                cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
 

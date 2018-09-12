@@ -37,6 +37,7 @@ export default new Router({
  * icon:图标
  * name:只要有name值就缓存页面(此处的name值要和组件中的name值保持一致)
  * menu:是否是菜单项
+ * 注意:index只有在一级菜单没有子菜单的时候使用
 */
 export const asyncMap = [{
     path: '/platform',
@@ -51,14 +52,18 @@ export const asyncMap = [{
     }]
 }, {
     path: '/component',
-    redirect: '/component/index',
     component: Layout,
     meta: { title: '组件测试', icon: 'fa fa-windows', menu: true },
     children: [{
-        path: 'index',
-        name: 'bus',
-        component: () => import('@/views/test/TestBus'),
-        meta: {title: '组件测试'}
+        path: 'test',
+        name: 'Test1Bus',
+        component: () => import('@/views/test/test1/test1-bus'),
+        meta: {title: '公用组件1', icon: 'fa fa-windows', menu: true}
+    }, {
+        path: 'test2',
+        name: 'Test2Bus',
+        component: () => import('@/views/test/test2/test2-bus'),
+        meta: { title: '公用组件2', icon: 'fa fa-windows', menu: true }
     }]
 }, {
     path: '/upload',

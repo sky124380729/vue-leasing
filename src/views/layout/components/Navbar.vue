@@ -1,14 +1,13 @@
 <template>
     <section class="navbar">
         <div class="menubar">
-            <!-- <i class="fa" :class="`${$store.state.collapse?'fa-indent':'fa-outdent'}`" @click="changeCollapse"></i> -->
            <div class="fl">
                 <i class="fa fa-th-list" :class="{'fa-rotate-90':$store.state.collapse}" @click="changeCollapse"></i>
                 <!-- 面包屑导航 -->
                 <el-breadcrumb separator-class="el-icon-arrow-right">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <transition-group name="breadcrumb">
-                        <el-breadcrumb-item v-for="item in breadList" :key="item.name">{{item.meta.title}}</el-breadcrumb-item>
+                        <el-breadcrumb-item v-for="item in breadList" :key="item.path">{{item.meta.title}}</el-breadcrumb-item>
                     </transition-group>
                 </el-breadcrumb>
            </div>
@@ -57,8 +56,11 @@ export default {
         return {
             msgVisible: false,
             msgList: [{
-                url: '/component/index?id=12-123-sda&status=TestAdd',
+                url: '/component/test?id=12-123-sda&status=TestAdd',
                 msg: '新增组件测试'
+            }, {
+                url: '/component/test?id=12-123-sda&status=TestList',
+                msg: '列表组件测试'
             }]
         }
     },

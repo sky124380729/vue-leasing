@@ -6,10 +6,10 @@
 
 <script>
 import { bus } from '@/mixins'
-import TestList from './TestList'
-import TestAdd from './TestAdd'
+import TestList from '../test1/test1-list'
+import TestAdd from '../test1/test1-add'
 export default {
-    name: 'TestBus',
+    name: 'Test2Bus',
     mixins: [bus],
     data() {
         return {

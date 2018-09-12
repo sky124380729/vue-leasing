@@ -41,3 +41,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - 为了实现缓存，页面内部使用keep-alive+component的形式书写，跳转使用replace+query参数，并更改state状态
 
 - 原则上，bus容器内的组件互相传值使用路由传参，除了state
+
+- 目录结构参考views/test 文件夹下  其中二级路由子文件夹只放component的is组件
