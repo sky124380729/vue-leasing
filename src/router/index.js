@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout/Layout'
 import Login from '@/views/login/Login'
-import NotFound from '@/components/404'
+import NotFound from '@/views/layout/NotFound'
 
 Vue.use(Router)
 
@@ -64,17 +64,11 @@ export const asyncMap = [{
         name: 'Test2Bus',
         component: () => import('@/views/test/test2/test2-bus'),
         meta: { title: '公用组件2', icon: 'fa fa-windows', menu: true }
-    }]
-}, {
-    path: '/upload',
-    redirect: '/upload/index',
-    component: Layout,
-    meta: { title: '图片上传测试', icon: 'fa fa-windows', menu: true },
-    children: [{
-        path: 'index',
-        name: 'upload',
-        component: () => import('@/components/c-upload'),
-        meta: {title: '图片上传测试'}
+    }, {
+        path: 'upload',
+        name: 'TestUpload',
+        component: () => import('@/views/test/upload'),
+        meta: { title: '图片上传测试', icon: 'fa fa-windows', menu: true }
     }]
 }, {
     path: '/system',
@@ -83,7 +77,7 @@ export const asyncMap = [{
     meta: {title: '系统资源管理', icon: 'fa fa-windows', menu: true},
     children: [{
         path: 'permission',
-        component: () => import('@/components/permission'),
+        component: () => import('@/views/system/permission'),
         name: 'permission',
         meta: { title: '系统权限管理', icon: 'fa fa-windows', menu: true }
     }]

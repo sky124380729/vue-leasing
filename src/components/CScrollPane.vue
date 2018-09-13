@@ -10,7 +10,7 @@
 const padding = 15 // tag's padding
 
 export default {
-    name: 'scrollPane',
+    name: 'CScrollPane',
     data() {
         return {
             left: 0

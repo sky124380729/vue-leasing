@@ -22,15 +22,12 @@
                 <el-input v-model="modelx.a"  v-clear></el-input>
             </el-form-item>
         </el-form>
-
-        <c-page></c-page>
     </section>
 </template>
 <script>
 import axios from 'axios'
-import CPage from '@/components/c-page'
 export default {
-    name: 'upload',
+    name: 'TestUpload',
     data() {
         return {
             dialogVisible: false,
@@ -88,9 +85,6 @@ export default {
                 console.log(res)
             })
         }
-    },
-    components: {
-        CPage
     }
 }
 </script>
